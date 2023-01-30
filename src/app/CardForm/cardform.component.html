@@ -1,0 +1,44 @@
+<div style="display: flex">
+  <div style="margin: auto; margin-left: 50px">
+    <img src="assets/Card.jpg" alt="" style="height: 350px" />
+  </div>
+  <div
+    class="container"
+    style="margin: auto; margin-right: 40px; margin-left: 40px"
+  >
+    <form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+      <app-input label="Ad Soyad" [control]="cardForm.get('name')"></app-input>
+      <app-input
+        label="Kart Numarası"
+        [control]="cardForm.get('cardNumber')"
+      ></app-input>
+      <div class="columns">
+        <div class="column">
+          <app-input
+            label="Son Kullanma Tarihi"
+            [control]="cardForm.get('expiration')"
+          ></app-input>
+        </div>
+        <div class="column">
+          <app-input
+            label="Güvenlik Kodu"
+            [control]="cardForm.get('securityCode')"
+          ></app-input>
+        </div>
+      </div>
+
+      <div class="buttons" style="display: flex; justify-content: flex-end">
+        <button class="button is-warning" (click)="ResetForm()" type="button">
+          Temizle
+        </button>
+        <button
+          class="button is-danger"
+          [disabled]="cardForm.invalid"
+          type="submit"
+        >
+          Kaydet
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
